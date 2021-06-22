@@ -5,6 +5,7 @@ dotenv.config();
 
 const apiKey = defaultClient.authentications['api-key'];
 apiKey.apiKey = process.env.SENDINBLUE_TOKEN;
+const sendTo = process.env.SEND_TO;
 
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
@@ -29,8 +30,8 @@ const sendEmail = (req, res) => {
 			</html>`,
     to: [
       {
-        email: 'nicolas.dantas@gmail.com',
-        name: 'Nicolas Dantas',
+        email: sendTo,
+        name: 'Marion Leclerc',
       },
     ],
     params: {
@@ -40,7 +41,7 @@ const sendEmail = (req, res) => {
   };
   apiInstance.sendTransacEmail(dataToSend).then(
     function (data: any) {
-      console.log('ok');
+      res.sendStatus(200);
     },
     function (error: any) {
       res.sendStatus(500);

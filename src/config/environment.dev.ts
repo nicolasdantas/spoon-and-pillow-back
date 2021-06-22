@@ -3,5 +3,5 @@ export interface IConfig {
 }
 
 export const config: IConfig = {
-  serverPort: 3000,
+  serverPort: 3001,
 };
