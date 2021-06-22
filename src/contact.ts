@@ -23,7 +23,7 @@ const sendEmail = (req, res) => {
 				</head>
 						<body>
 							<h2>Bonjour Marion,</h2>
-							<p>Vous avez reçu un nouveau message de ${data.firstname} ${data.lastname} ($[])</p>
+							<p>Vous avez reçu un nouveau message de ${data.firstname} ${data.lastname} - ${data.email}</p>
 							<p>Voici son contenu :</p>
 							<p>${data.message}</p>
 						</body>
